@@ -13,10 +13,18 @@ public class Abonnement {
 		return user.equals(this.user);
 	}
 	
-	public String getType()
+	public String getTypeNotification()
 	{
 		return typeNotif;
 	}
 	
-
+	public User getUser()
+	{
+		return user;
+	}
+	
+	/*
+	 * public void sendNotification(String message) { Notification notif =
+	 * NotificationFactory.getNotification(typeNotif); notif.notifier(message); }
+	 */
 }

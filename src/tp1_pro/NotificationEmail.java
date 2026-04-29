@@ -1,11 +1,18 @@
 package tp1_pro;
 
-public class NotificationEmail implements Notification {
+public class NotificationEmail extends Notification {
 
-	@Override
-	public void notifier() {
-		System.out.println("Notification mail");
-
+	public NotificationEmail() {
+		super();
+		// TODO Auto-generated constructor stub
 	}
+
+
+	/*
+	 * @Override public void notifier(String message) {
+	 * System.out.println("Notification mail: " + message);
+	 * 
+	 * }
+	 */
 
 }

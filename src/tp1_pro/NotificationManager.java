@@ -3,6 +3,8 @@ package tp1_pro;
 import java.util.ArrayList;
 import java.util.List;
 
+import tp1_pro.strategy.NotificationStrategy;
+
 public class NotificationManager {
 	private static NotificationManager notificationManager;
 	private List<Abonnement> abonnements = new ArrayList<Abonnement>();
@@ -24,13 +26,21 @@ public class NotificationManager {
 			abonnements.add(abonnement);
 	}
 
-	public void sendNotification(User user, String message) {
-		for (Abonnement ab : abonnements) {
-			if (ab.isSameUser(user)) {
-				Notification notif = NotificationFactory.getNotification(ab.getType());
-				notif.notifier();
-			}
+	public void notifierAll(String message, NotificationStrategy ns) {
+		for(Abonnement ab : abonnements)
+		{
+			Notification notification = NotificationFactory.getNotification(ab.getTypeNotification());
+			notification.setMessage(message);
+			notification.setStrategy(ns);
+			notification.send(ab);
 		}
+	}
+	
+	public void notifier(Abonnement ab, String message, NotificationStrategy ns) {
+		Notification notification = NotificationFactory.getNotification(ab.getTypeNotification());
+		notification.setMessage(message);
+		notification.setStrategy(ns);
+		notification.send(ab);
 	}
 
 	public static NotificationManager getInstance() {

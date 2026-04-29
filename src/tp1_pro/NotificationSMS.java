@@ -1,11 +1,9 @@
 package tp1_pro;
 
-public class NotificationSMS implements Notification {
+public class NotificationSMS extends Notification {
 
-	@Override
-	public void notifier() {
-		System.out.println("Notification SMS");
-
+	public NotificationSMS() {
+		super();
+		// TODO Auto-generated constructor stub
 	}
-
 }
