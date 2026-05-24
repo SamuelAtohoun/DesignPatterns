@@ -15,32 +15,16 @@ public class Main {
 
 		// -----Utilisation de Facade ---------
 		NotificationFacade notificationFacade = new NotificationFacade();
-	
+
 		User georges = new User("Georges Washington", 23);
 		ScheduledNotificationStrategy strategy = new ScheduledNotificationStrategy();
-		String message = "Hello User";
+		String message = "Bonjour Georges. Je t'écris pour te tenir informé de la réunion de fin de projet";
 
-		notificationFacade.envoyer(new Abonnement(georges, "push"), message, strategy);
+		Notification notification = null;
+		Abonnement ab = new Abonnement(georges, "push");
 
-		/*
-		 * User user1 = new User("Alice", 25); Abonnement ab1 = new Abonnement(user1,
-		 * "email");
-		 * 
-		 * Notification notifBase = NotificationFactory.getNotification("email");
-		 * notifBase.setMessage("Bonjour Alice !"); notifBase.setStrategy(new
-		 * FastNotificationStrategy());
-		 * 
-		 * // Sans décorateur System.out.println("=== Sans décorateur ===");
-		 * notifBase.send(ab1);
-		 * 
-		 * // Avec priorité System.out.println("\n=== Avec PriorityDecorator ===");
-		 * PriorityDecorator priorityNotif = new PriorityDecorator(notifBase);
-		 * priorityNotif.send(ab1);
-		 * 
-		 * // Avec accusé de réception
-		 * System.out.println("\n=== Avec ReceiptDecorator ==="); ReceiptDecorator
-		 * receiptNotif = new ReceiptDecorator(notifBase); receiptNotif.send(ab1);
-		 */
+		notification = notificationFacade.envoyer(ab, message, strategy, notification);
+		notificationFacade.lireNotification(notification, ab);
 	}
 
 }

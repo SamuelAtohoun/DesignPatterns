@@ -38,15 +38,10 @@ public class NotificationManager {
 		}
 	}
 
-	public void notifier(Abonnement ab, String message, NotificationStrategy ns) {
-		Notification notification = NotificationFactory.getNotification(ab.getTypeNotification());
-
-		notification.setMessage(message);
-		notification.setStrategy(ns);
+	public void notifier(Abonnement ab, Notification notification) {
 		PriorityDecorator priorityDecorator = new PriorityDecorator(notification);
 		priorityDecorator.send(ab);
 		notification.operationEnvoi(ab);
-		notification.operationLecture(ab);
 	}
 
 	public static NotificationManager getInstance() {
