@@ -1,0 +1,20 @@
+package strategy;
+
+import java.time.LocalTime;
+
+import general.User;
+
+public class ScheduledNotificationStrategy implements NotificationStrategy {
+
+	private LocalTime heure = LocalTime.now();
+
+	@Override
+	public void send(User user, String message) {
+		// if (heure > 0) {
+		System.out.println("Envoi Programmé à " + heure);
+		System.out.println("Message à "+ user.getNom());
+		System.out.println("Contenu du message :" + message);
+		// }
+	}
+
+}

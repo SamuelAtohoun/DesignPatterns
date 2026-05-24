@@ -1,6 +1,6 @@
 package decorator;
 
-import tp1_pro.Abonnement;
+import general.Abonnement;
 
 public class ReceiptDecorator extends NotificationDecorateurAbtraite {
 

@@ -1,10 +1,10 @@
 package decorator;
 
-import tp1_pro.Abonnement;
-import tp1_pro.Notification;
-import tp1_pro.NotificationFactory;
-import tp1_pro.User;
-import tp1_pro.strategy.FastNotificationStrategy;
+import factory.NotificationFactory;
+import general.Abonnement;
+import general.Notification;
+import general.User;
+import strategy.FastNotificationStrategy;
 
 public class TimestampDecorator extends NotificationDecorateurAbtraite {
 
